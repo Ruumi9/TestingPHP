@@ -1,6 +1,7 @@
 <?php
 require "db.php";
 session_start();
+
 // if (true) {
 //     header("Location: login.php");
 // }
@@ -15,10 +16,8 @@ if (isset($_POST["login"])) {
         die;
     }
     $result = mysqli_fetch_assoc($exeecQuery);
-    echo $result["password"];
-    var_dump(password_verify($password, $result["password"]));
-    // if (password_verify($password, $result["password"])) {
-    //     $_SESSION["login"] = true;
-    //     header("Location: index.php");
-    // }
+    if (password_verify($password, $result["password"])) {
+        $_SESSION["login"] = true;
+        header("Location: index.php");
+    }
 }
