@@ -34,3 +34,16 @@ if (isset($_POST["daftar"])) {
     }
     die;
 }
+if (isset($_POST["update"])) {
+    $username = $_POST["username"];
+    $nama = $_POST["nama"];
+    $id = $_POST["id"];
+    $query = "UPDATE user SET username = '$username', nama = '$nama' WHERE id = '$id'";
+    $exeecQuery = mysqli_query($db, $query);
+    if ($exeecQuery) {
+        header("Location: index.php");
+    } else {
+        header("Location: index.php");
+    }
+    die;
+}
