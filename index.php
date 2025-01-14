@@ -3,7 +3,10 @@ session_start();
 if (!isset($_SESSION["login"])) {
     header("Location: login.php");
 }
-
+require_once "db.php";
+$query = "SELECT * FROM user";
+$exeecQuery = mysqli_query($db, $query);
+$dataUser = mysqli_fetch_all($exeecQuery, MYSQLI_ASSOC);
 
 ?>
 
@@ -21,6 +24,32 @@ if (!isset($_SESSION["login"])) {
     <a href="login.php">Login</a>
     <br>
     <a href="pendaftaran.php">Pendaftaran</a>
+    <br>
+    <table border="1">
+        <thead>
+            <td>No</td>
+            <td>Nama</td>
+            <td>Username</td>
+            <td>Aksi</td>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($dataUser as $user):
+            ?>
+                <tr>
+                    <td>1</td>
+                    <td><?= $user["nama"] ?></td>
+                    <td><?= $user["username"] ?></td>
+                    <td>
+                        <a href="update.php?id=<?= $user["id"] ?>">Update</a>
+                        <a href="delete.php?id=<?= $user["id"] ?>">Delete</a>
+                    </td>
+                </tr>
+            <?php
+            endforeach;
+            ?>
+        </tbody>
+    </table>
 </body>
 
 </html>

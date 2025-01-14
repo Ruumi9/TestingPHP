@@ -21,3 +21,16 @@ if (isset($_POST["login"])) {
         header("Location: index.php");
     }
 }
+if (isset($_POST["daftar"])) {
+    $username = $_POST["username"];
+    $password = password_hash($_POST["password"], PASSWORD_ARGON2I);
+    $nama = $_POST["nama"];
+    $query = "INSERT INTO user VALUES ('','$username','$password','$nama')";
+    $exeecQuery = mysqli_query($db, $query);
+    if ($exeecQuery) {
+        header("Location: index.php");
+    } else {
+        header("Location: index.php");
+    }
+    die;
+}
