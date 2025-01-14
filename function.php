@@ -2,9 +2,9 @@
 require "db.php";
 session_start();
 
-// if (true) {
-//     header("Location: login.php");
-// }
+if (true) {
+    header("Location: login.php");
+}
 if (isset($_POST["login"])) {
     $username = $_POST["username"];
     // echo $username;

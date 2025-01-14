@@ -42,7 +42,7 @@ $dataUser = mysqli_fetch_all($exeecQuery, MYSQLI_ASSOC);
                     <td><?= $user["username"] ?></td>
                     <td>
                         <a href="update.php?id=<?= $user["id"] ?>">Update</a>
-                        <a href="delete.php?id=<?= $user["id"] ?>">Delete</a>
+                        <a href="delete.php?id=<?= $user["id"] ?>" onclick="confirm('Aapakah anda ingin menhapus?')">Delete</a>
                     </td>
                 </tr>
             <?php
