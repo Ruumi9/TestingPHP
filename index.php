@@ -25,6 +25,7 @@ $dataUser = mysqli_fetch_all($exeecQuery, MYSQLI_ASSOC);
     <br>
     <a href="pendaftaran.php">Pendaftaran</a>
     <br>
+    <a href="logout.php">logout</a>
     <table border="1">
         <thead>
             <td>No</td>
